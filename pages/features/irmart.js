@@ -3,17 +3,19 @@ import {useState} from 'react';
 
 
 function Irmart() {
-  const [tirageList, settirageList] = useState([])
-  const forNumbers = []
+  const [tirageList, setTirageList] = useState([])
 
- const handlaNewTirage = () => {
+ const handleNewTirage = () => {
    console.log("click")
-    while(forNumbers.length < 4){
-      var newTirage = Math.floor(Math.random() * 24) + 1;
-      if(forNumbers.indexOf(newTirage) === -1){
-        settirageList([...tirageList, newTirage])
-      } 
+    let list = []
+
+    while ( list.length <4 ){
+      let newTirage = Math.floor(Math.random() * 21);
+      if(!list.includes(newTirage)){
+        list.push(newTirage)
+      }
     }
+    setTirageList(list)
  }
  console.log(tirageList)
 
@@ -23,25 +25,26 @@ function Irmart() {
           <img src="../images/img1.png" />
         </div>   
           <div className='row'>
-            <p className='newTirage' onClick={()=> handlaNewTirage()} >Nouveau Tirage</p>
+            <p className='newTirage' onClick={()=> handleNewTirage()} > Nouveau Tirage</p>
             <p>{tirageList}</p>
             </div>
         
         <style jsx>{`
             .container {
               display:flex;
+              justify-content: space-evenly;
               width: auto;
               heigth: auto;
               background-color: #0059ad;
             }
             img {
-              display: flex;
               justify-content: center;
               width: 250px;
               border-radius:50%;
             }
             .newTirage {
-              cursor:pointer
+              cursor:pointer;
+              border : 5px red solid ;
             }
           `}</style>
       </div>
