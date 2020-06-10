@@ -15,7 +15,7 @@ export default function Card(props){
                 <img src="/images/card.png" ></img>
             </div>
             <div className="overlay">
-            <img className='overlay-component ' src={props.illustration} ></img><p>modal</p>
+            <img className='overlay-component ' src={props.illustration} ></img><p>Overlay</p>
             </div>
             <style jsx>{`
             .div {

@@ -6,7 +6,7 @@ import fakeIrmart from "data/fakeIrmart";
 function Irmart(props) {
   const [tirageList, setTirageList] = useState([]);
   const [visible, setVisible] = useState(true);
-  const [showModal, setShowModal] = useState('none')
+  const [showModal, setShowModal] = useState('')
   let display = "";
   let displayCard = "";
 
@@ -185,9 +185,6 @@ function Irmart(props) {
     <div id="myModal" className="modal row">
       <div className="modal-content">
       <span onClick={()=>handleClose()} className="close">&times;</span>
-      <div className="descriptionDiv">
-      <div className="tarot">
-        </div>
         <div className="description">
           <div className="columnDesc">
             <div>
@@ -200,10 +197,6 @@ function Irmart(props) {
           <div className="rowDesc">
             <p>{fakeIrmart[0].card_description}</p>
           </div>
-        </div>
-        <div className="art">
-        <p>{fakeIrmart[0].card_title}</p>
-        </div>
       </div>
       </div>
       </div>
@@ -291,23 +284,15 @@ function Irmart(props) {
             display: ${showModal};
             margin-top: 160px;
             width: 90%;
+            height:70%;
             position: fixed;
             z-index: 1;
             border: 1px red solid;
           }
           .modal-content {
             background: #0049ad;
+            height:80%;
             margin: auto;
-          }
-          .descriptionDiv{
-            display:flex;            
-          }
-          .tarot {
-            background: #0049ad;
-            margin: 15px;
-            height: 40vh;
-            width: 15vw;
-            border: 8px #00c2cb solid;
           }
           .description {
             background: #00c2cb;
@@ -323,13 +308,6 @@ function Irmart(props) {
           .columnDesc{
             height: 50%;
             display:flex;
-          }
-          .art {
-            background: #0049ad;
-            margin: 15px;
-            height: 40vh;
-            width: 15vw;
-            border: 8px #00c2cb solid;
           }
           .close {
             color: #00c2cb;
