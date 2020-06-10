@@ -2,11 +2,12 @@
 import { useState } from "react";
 import Card from "components/card";
 import fakeIrmart from "data/fakeIrmart";
+import Modal from "components/modalIrmart"
 
-function Irmart(props) {
+function Irmart() {
   const [tirageList, setTirageList] = useState([]);
   const [visible, setVisible] = useState(true);
-  const [showModal, setShowModal] = useState('')
+  const [showModal, setShowModal] = useState('none')
   let display = "";
   let displayCard = "";
 
@@ -126,9 +127,9 @@ function Irmart(props) {
   if (!visible === true) {
     display = "none";
   }
-  console.log(display);
 
   const handleClickTirage = () => {
+    console.log('click')
     setVisible(false);
     let list = [];
 
@@ -143,12 +144,13 @@ function Irmart(props) {
   };
 
   const handleClickCard = (i) => {
-    setShowModal(true)
+    setShowModal ('')
     console.log("click", showModal)
   };
 
   const handleClose = () => {
-    setShowModal(false)
+    setShowModal("none")
+    console.log("click", showModal)
   }
 
   const tirage = tirageList.map((card, i) => {
@@ -179,34 +181,19 @@ function Irmart(props) {
       <div className="card">
         {tirage}
       </div>
-      <img className="branchBas" src="../images/houx.webp" />
-      
-    {/* ------> MODAL <------- */}
-    <div id="myModal" className="modal row">
-      <div className="modal-content">
-      <span onClick={()=>handleClose()} className="close">&times;</span>
-        <div className="description">
-          <div className="columnDesc">
-            <div>
-            <p>{fakeIrmart[0].card_description}</p>
-            </div>
-            <div>
-            <p>{fakeIrmart[0].card_description}</p>
-            </div>
-          </div>
-          <div className="rowDesc">
-            <p>{fakeIrmart[0].card_description}</p>
-          </div>
-      </div>
-      </div>
-      </div>
-
+        <img className="branchBas" src="../images/houx.webp" />
+         
+              <div id="myModal" className="modal row">
+              <Modal onClick={() => handleClose()}/>
+              </div>
     {/* ------> STYLE <------- */}
       <style jsx global>{`
         * {
           margin: 0;
           padding: 0;
           box-sizing:border-box;
+          // border : 1px red solid;
+
         }
         body{
           background: #0049ad;
@@ -229,31 +216,33 @@ function Irmart(props) {
             }
             .picto{
               display: ${display};
-              margin: 2vmax;
+              padding: 20px;
               height: 15vh;
             }
             .oeil{
               display: ${display};
-              padding-top: 5vmax;
-              height: 14vmin;
+              margin-top: 50px;
+              height: 10vh;
             }
             .voyante {
               display: ${display};
-              height: 50vmin;
-              width: 53vmin;
+              height: 30vh;
+              width: auto;
               border-radius:50%;
-              margin-top: 3vmin;
+              padding-top: 10px;
             }
             .branchHaut {
-              width: 30vmax;
+              transform: rotate(0.91turn);
+              width: 30vw;
               align-self: flex-start;
               position:absolute;
             }
             .branchBas {
               width: 30vw;
-              align-self: flex-end;
-              transform: rotate(0.5turn);
-              position:absolute;
+              transform: rotate(0.43turn);
+              position: absolute;
+              right: 0;
+              bottom:0;
             }
             .newTirage {
               display: ${display};
@@ -261,65 +250,32 @@ function Irmart(props) {
               border : 15px #5e17eb solid ;
               background-color: white;
               height: auto ;
-              width: 40vw ;
-              margin: 5vmin;
+              width: 25vw ;
+              margin: 15px;
             }
             h1 {
               font-weight: bold;
               color: #ac74ff;
-              font-size: 80px;
+              font-size: 40px;
               text-align:center;
               font-family: 'Roboto', sans-serif;
             }
             .card {
+              position: absolute;
+              margin-top: 190px;
               width:80vw;
-              height: 100vh;
               display: flex;
               justify-content: space-evenly;
               align-items:center;
-              border : 1px red solid;
             }
             
           #myModal {
             display: ${showModal};
-            margin-top: 160px;
-            width: 90%;
-            height:70%;
+            width: 100%;
+            height:100%;
             position: fixed;
             z-index: 1;
             border: 1px red solid;
-          }
-          .modal-content {
-            background: #0049ad;
-            height:80%;
-            margin: auto;
-          }
-          .description {
-            background: #00c2cb;
-            margin: 15px;
-            height: 300px;
-            width: 400px;
-            border-radius: 10%;
-            display:flex;
-            flex-direction:column;
-            align-items:center;
-            justify-content:space-evenly;
-          }
-          .columnDesc{
-            height: 50%;
-            display:flex;
-          }
-          .close {
-            color: #00c2cb;
-            float: right;
-            font-size: 30px;
-            font-weight: bold;
-          }
-          .close:hover,
-          .close:focus {
-            color: #000;
-            text-decoration: none;
-            cursor: pointer;
           }
           `}</style>
     </div>

@@ -1,26 +1,18 @@
 import { useState } from "react";
 
 
-export default function Card(props){
-    // const [show, setShow] = useState(true)
+export default function Card({illustration,onClick}){
     let display = ''
-
-    // if(show === false){
-    //     display = "none"
-    // }
     
     return(
         <div className="div">
-            <div className="card">
-                <img src="/images/card.png" ></img>
-            </div>
+                <img onClick={onClick} src="/images/card.png" ></img>
             <div className="overlay">
-            <img className='overlay-component ' src={props.illustration} ></img><p>Overlay</p>
+            <img className='overlay-component ' src={illustration} ></img><p>Overlay</p>
             </div>
             <style jsx>{`
             .div {
                 heigth: auto;
-                
             }
             img {
                 height: 40vh; 
@@ -30,9 +22,9 @@ export default function Card(props){
                 width:100%.
                 height: 100%;
                 position: absolute;
-                top: 30; 
+                top: 30px; 
                 bottom:330px; 
-                left: 510px; 
+                left: 380px; 
                 right: 0;
                 margin-top: 15vmin;
                 -webkit-transform: scale(0);
