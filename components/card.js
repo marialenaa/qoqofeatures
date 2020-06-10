@@ -10,29 +10,30 @@ export default function Card(props){
     // }
     
     return(
-        <div className="container">
-            <div className="cards">
-            <img src="../images/img2.png" ></img>
+        <div className="div">
+            <div className="card">
+                <img src="/images/card.png" ></img>
             </div>
             <div className="overlay">
-            <img className='overlay-component ' src="{props.illustration}" ></img><p>modal</p>
-                {props.illustration}
+            <img className='overlay-component ' src={props.illustration} ></img><p>modal</p>
             </div>
             <style jsx>{`
-            .container {
-                display: flex;
-                justify-content: center;
-                align-content: center;
-                margin:8vmin;
+            .div {
+                heigth: auto;
+                
             }
-                img {
-                    height: 25vmax;                
+            img {
+                height: 40vh; 
+                margin:10px;               
                 }
             .overlay {
-                width:90%.
-                height: 90%;
+                width:100%.
+                height: 100%;
                 position: absolute;
-                top:0;
+                top: 30; 
+                bottom:330px; 
+                left: 510px; 
+                right: 0;
                 margin-top: 15vmin;
                 -webkit-transform: scale(0);
                 -ms-transform: scale(0);
@@ -40,10 +41,10 @@ export default function Card(props){
                 -webkit-transition: .3s ease;
                 transition: .3s ease;
             }
-            .overlay-component {
-                height: 50vmax;
+            .overlay-component{
+                height: 30vh;
             }
-            .container:hover .overlay {
+            .div:hover .overlay {
                 -webkit-transform: scale(1);
                 -ms-transform: scale(1);
                 transform: scale(1);

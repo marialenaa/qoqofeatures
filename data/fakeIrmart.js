@@ -1,0 +1,78 @@
+export default [
+  {
+    _id: "5eddd6328c66f5337e4e613d",
+    card_title: "Le monde",
+    card_description: "La carte du monde parle de blablablablabla",
+    createdAt: "2020-06-08T06:09:54.978Z",
+    updatedAt: "2020-06-08T06:10:51.883Z",
+    __v: 0,
+    art: {
+      _id: "5eddd5fb8c66f5337e4e613b",
+      title: "test art",
+      author: "toto",
+      description: "this is a work of art",
+      createdAt: "2020-06-08T06:08:59.107Z",
+      updatedAt: "2020-06-08T06:10:51.899Z",
+      __v: 0,
+      illustration: {
+        _id: "5ed04400240bef00175838d2",
+        name: "unnamed",
+        alternativeText: "",
+        caption: "",
+        hash: "unnamed_f89eaf4395",
+        ext: ".jpeg",
+        mime: "image/jpeg",
+        size: 53.6,
+        width: 417,
+        height: 512,
+        url:
+          "https://res.cloudinary.com/dpzptfblv/image/upload/v1590707198/unnamed_f89eaf4395.jpg",
+        provider_metadata: {
+          public_id: "unnamed_f89eaf4395",
+          resource_type: "image",
+        },
+        formats: {
+          thumbnail: {
+            hash: "thumbnail_unnamed_f89eaf4395",
+            ext: ".jpeg",
+            mime: "image/jpeg",
+            width: 127,
+            height: 156,
+            size: 5.39,
+            path: null,
+            url:
+              "https://res.cloudinary.com/dpzptfblv/image/upload/v1590707199/thumbnail_unnamed_f89eaf4395.jpg",
+            provider_metadata: {
+              public_id: "thumbnail_unnamed_f89eaf4395",
+              resource_type: "image",
+            },
+          },
+          small: {
+            hash: "small_unnamed_f89eaf4395",
+            ext: ".jpeg",
+            mime: "image/jpeg",
+            width: 407,
+            height: 500,
+            size: 49.93,
+            path: null,
+            url:
+              "https://res.cloudinary.com/dpzptfblv/image/upload/v1590707200/small_unnamed_f89eaf4395.jpg",
+            provider_metadata: {
+              public_id: "small_unnamed_f89eaf4395",
+              resource_type: "image",
+            },
+          },
+        },
+        provider: "cloudinary",
+        related: ["5ed04435240bef00175838d3"],
+        createdAt: "2020-05-28T23:06:40.359Z",
+        updatedAt: "2020-06-08T06:10:06.320Z",
+        __v: 0,
+        id: "5ed04400240bef00175838d2",
+      },
+      irmart: "5eddd6328c66f5337e4e613d",
+      id: "5eddd5fb8c66f5337e4e613b",
+    },
+    id: "5eddd6328c66f5337e4e613d",
+  },
+];
