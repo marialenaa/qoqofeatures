@@ -20,6 +20,7 @@ export default function Modal({onClick}) {
                 </div>
             <style>{`
           .modal-content {
+            z-index: 1;
             background: #0049ad;
             margin: auto;
           }

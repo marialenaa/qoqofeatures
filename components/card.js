@@ -8,25 +8,20 @@ export default function Card({illustration,onClick}){
         <div className="div">
                 <img onClick={onClick} src="/images/card.png" ></img>
             <div className="overlay">
-            <img className='overlay-component ' src={illustration} ></img><p>Overlay</p>
+            <img className='overlay-component ' src={illustration} ></img>
             </div>
             <style jsx>{`
             .div {
-                heigth: auto;
+                z-index: 1;
             }
             img {
                 height: 40vh; 
-                margin:10px;               
+                width: auto; 
+                margin: 20px;               
                 }
             .overlay {
-                width:100%.
-                height: 100%;
-                position: absolute;
-                top: 30px; 
-                bottom:330px; 
-                left: 380px; 
-                right: 0;
-                margin-top: 15vmin;
+                position: relative;
+                bottom:35px;
                 -webkit-transform: scale(0);
                 -ms-transform: scale(0);
                 transform: scale(0);

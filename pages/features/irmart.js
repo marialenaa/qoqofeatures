@@ -11,122 +11,11 @@ function Irmart() {
   let display = "";
   let displayCard = "";
 
-  const data = [
-    {
-      card_title: "1",
-      card_description: "blabla",
-      illustration: "../images/goutte.svg",
-    },
-    {
-      card_title: "2",
-      card_description: "blabla",
-      illustration: "../images/goutte.svg",
-    },
-    {
-      card_title: "3",
-      card_description: "blabla",
-      illustration: "../images/goutte.svg",
-    },
-    {
-      card_title: "4",
-      card_description: "blabla",
-      illustration: "../images/goutte.svg",
-    },
-    {
-      card_title: "5",
-      card_description: "blabla",
-      illustration: "../images/goutte.svg",
-    },
-    {
-      card_title: "6",
-      card_description: "blabla",
-      illustration: "../images/goutte.svg",
-    },
-    {
-      card_title: "7",
-      card_description: "blabla",
-      illustration: "../images/goutte.svg",
-    },
-    {
-      card_title: "8",
-      card_description: "blabla",
-      illustration: "../images/goutte.svg",
-    },
-    {
-      card_title: "9",
-      card_description: "blabla",
-      illustration: "../images/goutte.svg",
-    },
-    {
-      card_title: "10",
-      card_description: "blabla",
-      illustration: "../images/goutte.svg",
-    },
-    {
-      card_title: "11",
-      card_description: "blabla",
-      illustration: "../images/goutte.svg",
-    },
-    {
-      card_title: "12",
-      card_description: "blabla",
-      illustration: "../images/goutte.svg",
-    },
-    {
-      card_title: "13",
-      card_description: "blabla",
-      illustration: "../images/goutte.svg",
-    },
-    {
-      card_title: "14",
-      card_description: "blabla",
-      illustration: "../images/goutte.svg",
-    },
-    {
-      card_title: "15",
-      card_description: "blabla",
-      illustration: "../images/goutte.svg",
-    },
-    {
-      card_title: "16",
-      card_description: "blabla",
-      illustration: "../images/goutte.svg",
-    },
-    {
-      card_title: "17",
-      card_description: "blabla",
-      illustration: "../images/goutte.svg",
-    },
-    {
-      card_title: "18",
-      card_description: "blabla",
-      illustration: "../images/goutte.svg",
-    },
-    {
-      card_title: "19",
-      card_description: "blabla",
-      illustration: "../images/goutte.svg",
-    },
-    {
-      card_title: "20",
-      card_description: "blabla",
-      illustration: "../images/goutte.svg",
-    },
-    {
-      card_title: "21",
-      card_description: "blabla",
-      illustration: "../images/goutte.svg",
-    },
-    {
-      card_title: "22",
-      card_description: "blabla",
-      illustration: "../images/goutte.svg",
-    },
-  ];
-
   if (!visible === true) {
     display = "none";
   }
+
+  // <------ MECANIQUE TIRAGE 4 RANDOM CARD SECTION -------->
 
   const handleClickTirage = () => {
     console.log('click')
@@ -134,7 +23,7 @@ function Irmart() {
     let list = [];
 
     while (list.length < 4) {
-      let newTirage = Math.floor(Math.random() * data.length);
+      let newTirage = Math.floor(Math.random() * 21);  // have replace "21" by real dataCard 
       if (!list.includes(newTirage)) {
         list.push(newTirage);
       }
@@ -143,6 +32,17 @@ function Irmart() {
     console.log(list);
   };
 
+  const tirage = tirageList.map((card, i) => {
+    return (
+      <Card
+        key={i}
+        onClick={() => handleClickCard()}
+        illustration={fakeIrmart[0].art.illustration.url}
+      />
+    );
+  });
+
+  // <------ CLICK CARD OPEN MODAL SECTION -------->
   const handleClickCard = (i) => {
     setShowModal ('')
     console.log("click", showModal)
@@ -153,40 +53,30 @@ function Irmart() {
     console.log("click", showModal)
   }
 
-  const tirage = tirageList.map((card, i) => {
-    return (
-      <Card
-        key={i}
-        onClick={() => handleClickCard()}
-        illustration={fakeIrmart[0].art.illustration.mime}
-      />
-    );
-  });
-
   return (
-    /* ------> PREMIERE PAGE <------- */
+  /* ------> PREMIERE PAGE <------- */
     <div className="page">
-      <img className="branchHaut" src="../images/houx.webp" />
+      <img className="topBranch" src="../images/houx.webp" />
       <div className="row">
-        <img className="picto" src="../images/goutte.svg" />
-        <img className="oeil" src="../images/oeil.svg" />
-        <img className="picto" src="../images/goutte.svg" />
+        <img className="drop" src="../images/goutte.svg" />
+        <img className="eye" src="../images/oeil.svg" />
+        <img className="drop" src="../images/goutte.svg" />
       </div>
-      <img className="voyante" src="../images/3.jpg" />
+      <img className="irmaPic" src="../images/3.jpg" />
       <h1 className="newTirage" onClick={() => handleClickTirage()}>
         {" "}NOUVEAU TIRAGE{" "}
       </h1>
 
-    {/* ------> CARDS SECTION <------- */}
+  {/* <------- TIRAGE 4 RANDOM CARD SECTION -------->*/}
       <div className="card">
         {tirage}
       </div>
-        <img className="branchBas" src="../images/houx.webp" />
+        <img className="bottomBranch" src="../images/houx.webp" />
          
               <div id="myModal" className="modal row">
               <Modal onClick={() => handleClose()}/>
               </div>
-    {/* ------> STYLE <------- */}
+  {/* <-------  STYLE SECTION------> */}
       <style jsx global>{`
         * {
           margin: 0;
@@ -197,8 +87,8 @@ function Irmart() {
         }
         body{
           background: #0049ad;
-          width: 100vw;
-          height:100vh;
+          width: auto;
+          height:auto;
         }
       `}</style>
       <style jsx>{`
@@ -206,43 +96,44 @@ function Irmart() {
             .page {
               display:flex;
               flex-direction: column;
-              align-items: center;
+              // align-items: center;
               height: auto;
             }
             .row{
               margin: 0 ;
               display:flex;
               justify-content: center;
+              align-self: center;
             }
-            .picto{
+            .drop{
               display: ${display};
               padding: 20px;
               height: 15vh;
             }
-            .oeil{
+            .eye{
               display: ${display};
               margin-top: 50px;
               height: 10vh;
             }
-            .voyante {
+            .irmaPic {
               display: ${display};
-              height: 30vh;
-              width: auto;
+              width: 18vw;
               border-radius:50%;
               padding-top: 10px;
+              align-self: center;
             }
-            .branchHaut {
+            .topBranch {
               transform: rotate(0.91turn);
               width: 30vw;
               align-self: flex-start;
               position:absolute;
             }
-            .branchBas {
+            .bottomBranch {
+              align-self: flex-end;
+              position: absolute;
+              bottom: 0;
               width: 30vw;
               transform: rotate(0.43turn);
-              position: absolute;
-              right: 0;
-              bottom:0;
             }
             .newTirage {
               display: ${display};
@@ -259,14 +150,15 @@ function Irmart() {
               font-size: 40px;
               text-align:center;
               font-family: 'Roboto', sans-serif;
+              align-self: center;
             }
             .card {
+              align-self: center;
               position: absolute;
-              margin-top: 190px;
+              margin-top: 90px;
               width:80vw;
               display: flex;
-              justify-content: space-evenly;
-              align-items:center;
+              justify-content: center;
             }
             
           #myModal {
