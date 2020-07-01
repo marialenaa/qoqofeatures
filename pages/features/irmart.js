@@ -1,15 +1,13 @@
 // no need to import React, it's in scope by default with NextJS
 import { useState } from "react";
-import Card from "components/card";
 import fakeIrmart from "data/fakeIrmart";
-import Modal from "components/modalIrmart"
+import {Modal, Card} from 'components/index'
 
 function Irmart() {
   const [tirageList, setTirageList] = useState([]);
   const [visible, setVisible] = useState(true);
   const [showModal, setShowModal] = useState('none')
   let display = "";
-  let displayCard = "";
 
   if (!visible === true) {
     display = "none";
@@ -18,7 +16,6 @@ function Irmart() {
   // <------ MECANIQUE TIRAGE 4 RANDOM CARD SECTION -------->
 
   const handleClickTirage = () => {
-    console.log('click')
     setVisible(false);
     let list = [];
 
@@ -29,7 +26,6 @@ function Irmart() {
       }
     }
     setTirageList(list);
-    console.log(list);
   };
 
   const tirage = tirageList.map((card, i) => {
@@ -45,12 +41,10 @@ function Irmart() {
   // <------ CLICK CARD OPEN MODAL SECTION -------->
   const handleClickCard = (i) => {
     setShowModal ('')
-    console.log("click", showModal)
   };
 
   const handleClose = () => {
     setShowModal("none")
-    console.log("click", showModal)
   }
 
   return (
@@ -73,8 +67,12 @@ function Irmart() {
       </div>
         <img className="bottomBranch" src="../images/houx.webp" />
          
-              <div id="myModal" className="modal row">
-              <Modal onClick={() => handleClose()}/>
+              <div id="myModal" className="row">
+              <Modal 
+              onClick={() => handleClose()}  
+              artTitle={fakeIrmart[0].art.title} 
+              artDescription={fakeIrmart[0].art.description} 
+              artAutor={fakeIrmart[0].art.author} />
               </div>
   {/* <-------  STYLE SECTION------> */}
       <style jsx global>{`
@@ -88,10 +86,11 @@ function Irmart() {
         body{
           background: #0049ad;
           width: auto;
-          height:auto;
+          height: auto;
         }
       `}</style>
       <style jsx>{`
+            @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
             @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap');
             .page {
               display:flex;
@@ -153,21 +152,20 @@ function Irmart() {
               align-self: center;
             }
             .card {
+              width:auto;
               align-self: center;
               position: absolute;
-              margin-top: 90px;
-              width:80vw;
+              margin-top: 120px;
               display: flex;
               justify-content: center;
             }
             
           #myModal {
             display: ${showModal};
+            margin-top: 50px;
             width: 100%;
-            height:100%;
             position: fixed;
             z-index: 1;
-            border: 1px red solid;
           }
           `}</style>
     </div>
