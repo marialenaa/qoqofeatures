@@ -91,7 +91,7 @@ export default function EnigmesGalerie(){
                 </section>
         <style>{`
             .container {
-                padding:20px;
+                padding:40px;
                 border: 1px red solid;
                 text-decoration: none;
                 color: inherit;

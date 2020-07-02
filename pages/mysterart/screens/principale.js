@@ -3,8 +3,8 @@ import Link from "next/link"
 export default function Principale(){
 
     return(
-        <div style={{width: "100vw", height: "90vh", background:"", display:'flex', alignItems:'flex-end', justifyContent:'space-evenly'}}>
-            <Link href='./map'>
+        <div style={{width: "auto", height: "80vh", background:"", display:'flex', alignItems:'flex-end', justifyContent:'space-evenly',padding:"40px", textAlign:"center"}}>
+            <Link href='./carte'>
                 <a style={{
                     textDecoration: "none",
                     color: "inherit",
