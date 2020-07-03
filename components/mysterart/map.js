@@ -1,8 +1,8 @@
-
 import { Map, Marker, Popup, TileLayer } from "react-leaflet";
 
+// import { marker } from "leaflet";
 const position = [51.505, -0.09];
-
+// const marker1 = Lmarker([]
 
 export default LeafletMap(props)(
 
